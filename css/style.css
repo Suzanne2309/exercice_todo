@@ -1,0 +1,63 @@
+/******************************************************* Général *********************************************************************************/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/******************************************************* Wrapper *********************************************************************************/
+
+#wrapper {
+    width: 100%;
+    padding: 2em;
+}
+
+h1 {
+    width: 100%;
+    text-align: center;
+    font-size: 5em;
+}
+
+/******************************************************* To do list *********************************************************************************/
+
+#todo {
+    width: 100%;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+#count {}
+
+/* Bouton add a task*/
+#btn {
+    width: 60%;
+    padding: 0.2em;
+    border: 0.1em solid #000;
+    font-size: 1.2em;
+}
+
+/* Cards */
+#todoCards {
+    width: 100%;
+    display: flex;
+    gap: 2em;
+}
+
+.todoCard {
+    width: 10%;
+    position: relative;
+}
+
+.task {
+    width: 100%;
+    font-size: 1.2em;
+}
+
+.delBtn {
+    width: 2em;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}

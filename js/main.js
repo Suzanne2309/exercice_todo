@@ -5,6 +5,12 @@ const addBtn = document.querySelector('#btn');
 //On crée l'événement du click sur le bouton d'ajout qui provoquera la fonction addTask
 addBtn.addEventListener('click', addTask);
 
+//On crée la variable counter en disant au DOM de chercher par id l'élément HTMl qui nous intéresse
+const counter = document.getElementById('counter');
+//On crée la variable count, on choisit let car ce sera une variable qui pourra être changé. On le met à 1 car il y a déjà une carte par défaut.
+let count = 1;
+updateCount();
+
 
 //On crée la fonction d'ajout (addTask)
 
@@ -28,22 +34,36 @@ function addTask() {
     })
 
     //Cette action va ajouter la nouvelle carte dans le DOM, en la reliant au tasks Container en tant que "enfant".
-    tasksContainer.appendChild(newTask)
+    tasksContainer.appendChild(newTask);
+    //On y ajoute count++; qui est le raccourci de count+=1 qui lui-même est un raccourci de count = count+1. Cela permet de d'augmenter le compteur à chaque carte qui est ajouté
+    count++;
+    //On replace l'appel à la fonction updateCount pour actualiser le compteur au changement de variable count
+    updateCount();
 }
 
 
 //Suppression des cartes to do
 
 //Pour faire fonction le bouton de suppression (icône poubelle)
-const delBtn = document.querySelector('delBtn');
-delBtn.addEventListener('click', function () {
+const delBtn = document.querySelector('.delBtn');
+delBtn.addEventListener('click', () => {
     deleteTask(taskCard);
 });
 
-//On crée la fonction delteTask
-
+//On crée la fonction delteTask qui agi sur le text aria "task"
 function deleteTask(task) {
+    //suppresion de task
     task.remove();
+    //On y ajoute count--; pour décompter à chaque suppression de carte
+    count--;
+    //On replace l'appel à la fonction updateCount pour actualiser le compteur au changement de variable count
+    updateCount();
 }
 
+// Cette fonction permet de mettre à jour le chiffre indiqué dans la div counter (innerHTML) pour adapté à la variable count
+function updateCount() {
+    counter.innerHTML = count;
+};
 
+// Au départ je pensé qu'il fallait créer la fonction pour le compteur, et donc j'avais recrée les événements de click sur addBtn et delBtn
+// Après des longues recherches, j'ai compris que cela crée des erreurs à cause des doublons.

@@ -28,7 +28,14 @@ h1 {
     gap: 2em;
 }
 
-#count {}
+/* Counter*/
+#counter {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 3em;
+}
+
 
 /* Bouton add a task*/
 #btn {

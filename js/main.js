@@ -55,14 +55,14 @@ function deleteTask(task) {
     //suppresion de task
     task.remove();
     //On y ajoute count--; pour décompter à chaque suppression de carte
-    count--;
+    count = Math.max(0, count - 1);
     //On replace l'appel à la fonction updateCount pour actualiser le compteur au changement de variable count
     updateCount();
 }
 
 // Cette fonction permet de mettre à jour le chiffre indiqué dans la div counter (innerHTML) pour adapté à la variable count
 function updateCount() {
-    counter.innerHTML = count;
+    counter.textContent = count;
 };
 
 // Au départ je pensé qu'il fallait créer la fonction pour le compteur, et donc j'avais recrée les événements de click sur addBtn et delBtn
